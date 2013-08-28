@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public void home(ModelMap map) {
+		// test
 		map.put("msg", "hello!!");
 	} 
 }
