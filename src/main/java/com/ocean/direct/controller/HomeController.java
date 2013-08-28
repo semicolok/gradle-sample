@@ -10,5 +10,5 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public void home(ModelMap map) {
 		map.put("msg", "hello");
-	}
+	} 
 }
