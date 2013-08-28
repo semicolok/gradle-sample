@@ -1,12 +1,19 @@
 package com.ocean.direct.domain.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import com.google.common.collect.Sets;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -29,6 +36,9 @@ public class Product extends OwnAuditable{
 	
 	@Column(nullable = false)
 	private Double longitude;
+	
+	@OneToMany(mappedBy = "product", targetEntity = Comment.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	private Set<Comment> comments=Sets.newHashSet();
 
 	public Long getId() {
 		return id;
@@ -65,5 +75,11 @@ public class Product extends OwnAuditable{
 	}
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+	public Set<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
 	}
 }
