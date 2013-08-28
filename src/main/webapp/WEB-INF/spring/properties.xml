@@ -7,7 +7,7 @@
 	<util:properties id="defaultProperties">
 		<!-- Database connection properties -->
  		<prop key="database.class">com.mysql.jdbc.Driver</prop>
-		<prop key="database.url">jdbc:mysql://localhost:3306/do_db?useUnicode=true&amp;connectionCollation=utf8_general_ci&amp;characterSetResults=utf8&amp;characterEncoding=utf8</prop>
+		<prop key="database.url">jdbc:mysql://localhost:3306/test?useUnicode=true&amp;connectionCollation=utf8_general_ci&amp;characterSetResults=utf8&amp;characterEncoding=utf8</prop>
 		<prop key="database.username">root</prop>
 		<prop key="database.password"></prop>
 	
