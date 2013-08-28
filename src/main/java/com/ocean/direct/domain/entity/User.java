@@ -8,14 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "User")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
 	private static final long serialVersionUID = -3581767852095691852L;
@@ -34,10 +32,13 @@ public class User implements Serializable {
 	private String name;
 
 	@Column(nullable = false, length = 15)
-	private String mobileNumber;
-	
-	@Column(nullable = false, length = 15)
 	private String phoneNumber;
+	
+	@Column(nullable = false)
+	private Double latitude;
+	
+	@Column(nullable = false)
+	private Double longitude;
 	
 	@Column(nullable = false, columnDefinition="int default 1")
 	private boolean enabled;
@@ -50,72 +51,61 @@ public class User implements Serializable {
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public String getUserPassword() {
 		return userPassword;
 	}
-
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
 	public boolean isEnabled() {
 		return enabled;
 	}
-
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
 	public Date getRegistTime() {
 		return registTime;
 	}
-
 	public void setRegistTime(Date registTime) {
 		this.registTime = registTime;
 	}
-
 	public Date getUpdatedTime() {
 		return updatedTime;
 	}
-
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 }
