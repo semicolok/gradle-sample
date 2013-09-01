@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +21,7 @@ public class Comment extends OwnAuditable {
 	private Long id;
 	
 	private String comment;
+	
+	@ManyToOne
+	private Board board;
 }

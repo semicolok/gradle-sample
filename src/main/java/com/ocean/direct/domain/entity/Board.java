@@ -1,15 +1,22 @@
 package com.ocean.direct.domain.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import com.google.common.collect.Sets;
 
 @Entity
 @Getter @Setter
@@ -26,12 +33,16 @@ public class Board extends OwnAuditable{
 
 	private String content;
 
-	private Double price;
-	
 	@Column(nullable = false)
 	private Double latitude;
 	
 	@Column(nullable = false)
 	private Double longitude;
+	
+	@OneToMany(mappedBy = "baord", targetEntity = Comment.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	private Set<Comment> comments=Sets.newHashSet();
+	
+	@OneToMany(mappedBy = "baord", targetEntity = Comment.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	private Set<UploadedFile> udd=Sets.newHashSet();
 
 }

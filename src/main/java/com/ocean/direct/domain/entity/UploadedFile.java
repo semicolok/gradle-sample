@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,5 +26,8 @@ public class UploadedFile implements Serializable{
 	private String fileName;
 	private String filePath;
 	private String fileSize;
+	
+	@ManyToOne
+	private Board board;
 	
 }

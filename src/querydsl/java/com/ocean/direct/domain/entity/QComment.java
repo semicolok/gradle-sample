@@ -24,6 +24,8 @@ public class QComment extends EntityPathBase<Comment> {
 
     public final QOwnAuditable _super;
 
+    public final QBoard board;
+
     public final StringPath comment = createString("comment");
 
     // inherited
@@ -60,6 +62,7 @@ public class QComment extends EntityPathBase<Comment> {
     public QComment(Class<? extends Comment> type, PathMetadata<?> metadata, PathInits inits) {
         super(type, metadata, inits);
         this._super = new QOwnAuditable(type, metadata, inits);
+        this.board = inits.isInitialized("board") ? new QBoard(forProperty("board"), inits.get("board")) : null;
         this.createdBy = _super.createdBy;
         this.createdDate = _super.createdDate;
         this.lastModifiedBy = _super.lastModifiedBy;

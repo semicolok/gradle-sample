@@ -24,6 +24,8 @@ public class QBoard extends EntityPathBase<Board> {
 
     public final QOwnAuditable _super;
 
+    public final SetPath<Comment, QComment> comments = this.<Comment, QComment>createSet("comments", Comment.class, QComment.class, PathInits.DIRECT);
+
     public final StringPath content = createString("content");
 
     // inherited
@@ -44,9 +46,9 @@ public class QBoard extends EntityPathBase<Board> {
 
     public final NumberPath<Double> longitude = createNumber("longitude", Double.class);
 
-    public final NumberPath<Double> price = createNumber("price", Double.class);
-
     public final StringPath title = createString("title");
+
+    public final SetPath<UploadedFile, QUploadedFile> udd = this.<UploadedFile, QUploadedFile>createSet("udd", UploadedFile.class, QUploadedFile.class, PathInits.DIRECT);
 
     public QBoard(String variable) {
         this(Board.class, forVariable(variable), INITS);

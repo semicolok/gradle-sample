@@ -7,6 +7,7 @@ import com.mysema.query.types.path.*;
 import com.mysema.query.types.PathMetadata;
 import javax.annotation.Generated;
 import com.mysema.query.types.Path;
+import com.mysema.query.types.path.PathInits;
 
 
 /**
@@ -17,7 +18,11 @@ public class QUploadedFile extends EntityPathBase<UploadedFile> {
 
     private static final long serialVersionUID = -1819585307;
 
+    private static final PathInits INITS = PathInits.DIRECT;
+
     public static final QUploadedFile uploadedFile = new QUploadedFile("uploadedFile");
+
+    public final QBoard board;
 
     public final StringPath fileName = createString("fileName");
 
@@ -28,16 +33,25 @@ public class QUploadedFile extends EntityPathBase<UploadedFile> {
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public QUploadedFile(String variable) {
-        super(UploadedFile.class, forVariable(variable));
+        this(UploadedFile.class, forVariable(variable), INITS);
     }
 
     @SuppressWarnings("all")
     public QUploadedFile(Path<? extends UploadedFile> path) {
-        super((Class)path.getType(), path.getMetadata());
+        this((Class)path.getType(), path.getMetadata(), path.getMetadata().isRoot() ? INITS : PathInits.DEFAULT);
     }
 
     public QUploadedFile(PathMetadata<?> metadata) {
-        super(UploadedFile.class, metadata);
+        this(metadata, metadata.isRoot() ? INITS : PathInits.DEFAULT);
+    }
+
+    public QUploadedFile(PathMetadata<?> metadata, PathInits inits) {
+        this(UploadedFile.class, metadata, inits);
+    }
+
+    public QUploadedFile(Class<? extends UploadedFile> type, PathMetadata<?> metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.board = inits.isInitialized("board") ? new QBoard(forProperty("board"), inits.get("board")) : null;
     }
 
 }
