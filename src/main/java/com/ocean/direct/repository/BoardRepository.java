@@ -3,8 +3,8 @@ package com.ocean.direct.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-import com.ocean.direct.domain.entity.Product;
+import com.ocean.direct.domain.entity.Board;
 
-public interface ProductRepository extends JpaRepository<Product, Long>, QueryDslPredicateExecutor<Product> {
+public interface BoardRepository extends JpaRepository<Board, Long>, QueryDslPredicateExecutor<Board> {
 
 }
