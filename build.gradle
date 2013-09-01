@@ -49,6 +49,7 @@ def lib = [
 	],
 	'aop' : [
 		"org.aspectj:aspectjrt:${versions.aspectj}",
+		"org.aspectj:aspectjweaver:${versions.aspectj}",
 		"cglib:cglib:${versions.cglib}",
 		"cglib:cglib-nodep:${versions.cglib}"
 	],
@@ -73,6 +74,8 @@ def lib = [
 		"org.codehaus.jackson:jackson-mapper-asl:${versions.jackson}",
 		'com.fasterxml:jackson-module-hibernate:1.9.1',
 		"commons-codec:commons-codec:1.8",
+		"commons-dbcp:commons-dbcp:1.4",
+		"mysql:mysql-connector-java:5.1.26",
 		"javax.servlet:jstl:1.2",
 		"org.projectlombok:lombok:${versions.projectlombok}"
 	],

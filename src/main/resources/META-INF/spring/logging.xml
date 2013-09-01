@@ -9,7 +9,7 @@
 	
 	<aop:config>
 		<aop:aspect ref="loggingAspect">
-			<aop:pointcut id="loggingPointCut" expression="execution(* io.csb..*.*(..))" />
+			<aop:pointcut id="loggingPointCut" expression="execution(* com.ocean..*.*(..))" />
 			<aop:around method="aroundAdvice" pointcut-ref="loggingPointCut" />
 		</aop:aspect>
 	</aop:config>
