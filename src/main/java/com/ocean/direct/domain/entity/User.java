@@ -11,16 +11,19 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-@Entity
 @Getter @Setter
+@Entity
+@ToString(of={"id", "email", "name", "enabled"})
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class User implements Serializable {
-	private static final long serialVersionUID = -3581767852095691852L;
+	private static final long serialVersionUID = 6627239276873585397L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +32,7 @@ public class User implements Serializable {
 	@Column(unique = true, nullable = false, length = 50)
 	private String email;
 
+	@Getter(AccessLevel.PRIVATE)
 	@Column(nullable = false, length = 100)
 	private String userPassword;
 
@@ -36,13 +40,10 @@ public class User implements Serializable {
 	private String name;
 
 	@Column(nullable = false, length = 15)
+	private String mobileNumber;
+	
+	@Column(nullable = false, length = 15)
 	private String phoneNumber;
-	
-	@Column(nullable = false)
-	private Double latitude;
-	
-	@Column(nullable = false)
-	private Double longitude;
 	
 	@Column(nullable = false, columnDefinition="int default 1")
 	private boolean enabled;
@@ -50,6 +51,5 @@ public class User implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registTime;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 }

@@ -28,6 +28,6 @@ public class UploadedFile implements Serializable{
 	private String fileSize;
 	
 	@ManyToOne
-	private Board board;
+	private BoardContentDetail boardContentDetail;
 	
 }

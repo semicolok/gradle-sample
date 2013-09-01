@@ -1,27 +1,31 @@
 package com.ocean.direct.domain.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-@Entity
 @Getter @Setter
+@Entity
+@ToString(of={"id"})
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Comment extends OwnAuditable {
-	private static final long serialVersionUID = -3581767852095691852L;
+public class BoardContentDetail implements Serializable {
+	private static final long serialVersionUID = 4952966612299017429L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String comment;
+	@Column(columnDefinition="TEXT")
+	private String content;
 	
-	@ManyToOne
-	private Board board;
 }

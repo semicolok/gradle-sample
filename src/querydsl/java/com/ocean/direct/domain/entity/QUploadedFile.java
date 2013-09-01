@@ -22,7 +22,7 @@ public class QUploadedFile extends EntityPathBase<UploadedFile> {
 
     public static final QUploadedFile uploadedFile = new QUploadedFile("uploadedFile");
 
-    public final QBoard board;
+    public final QBoardContentDetail boardContentDetail;
 
     public final StringPath fileName = createString("fileName");
 
@@ -51,7 +51,7 @@ public class QUploadedFile extends EntityPathBase<UploadedFile> {
 
     public QUploadedFile(Class<? extends UploadedFile> type, PathMetadata<?> metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.board = inits.isInitialized("board") ? new QBoard(forProperty("board"), inits.get("board")) : null;
+        this.boardContentDetail = inits.isInitialized("boardContentDetail") ? new QBoardContentDetail(forProperty("boardContentDetail")) : null;
     }
 
 }
