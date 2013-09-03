@@ -1,4 +1,4 @@
-doProject
+gradle-sample
 =========
 
-Direct Ocean
+spring-gradle-qdsl sample project
